@@ -1,0 +1,130 @@
+header
+{
+
+	background - repeat: no - repeat;
+background - size: 20 %;
+background - position: right;
+background - image: url(Masterschool.png);
+border - radius: 10 %;
+
+}
+
+/ *Grundlegende
+Einstellungen * /
+body
+{
+	margin: 0;
+padding: 0;
+background - color: rgb(220, 220, 220); / *fixed
+below * /
+}
+
+main
+{
+	display: flex;
+flex - direction: column;
+gap: 1.5
+rem;
+background - color: rgb(37, 50, 38); / *Dunkelgrün * /
+                                        color: rgb(232, 254, 212); / *Helles
+Grün
+für
+Text * /
+max - width: 560
+px;
+margin: 100
+px
+auto;
+padding: 2
+rem
+1.5
+rem;
+position: relative;
+box - sizing: border - box;
+}
+
+/ *Header - Titel * /
+h1
+{
+	font - size: 28px;
+line - height: 1.4;
+margin: 0
+0
+30
+px
+0;
+font - weight: bold;
+color: rgb(232, 254, 212);
+}
+
+h1
+i
+{
+	font - style: italic;
+font - weight: bold;
+}
+
+/ *Fließtext * /
+section
+p
+{
+	font - size: 19px;
+line - height: 1.4;
+color: rgb(232, 254, 212);
+margin: 20
+px
+0;
+}
+
+/ *Footer - Buttons * /
+footer
+{
+	margin - top: 30px;
+display: flex;
+}
+
+footer
+a
+{
+	display: inline - block;
+background - color: rgb(232, 254, 212);
+color: rgb(37, 50, 38);
+text - decoration: none;
+padding: 10
+px;
+font - size: 14
+px;
+font - weight: 400;
+border: none;
+margin - right: 1
+px;
+cursor: pointer;
+border - left: 4
+px
+solid
+rgb(37, 50, 38);
+}
+
+@media(max - width
+
+: 600
+px) {
+	main
+{
+	flex - direction: column - reverse;
+padding: 1
+rem;
+}
+
+footer
+{
+	flex - direction: column;
+}
+
+footer
+a
+{
+	margin - bottom: 0.5rem;
+width: 100 %;
+}
+}
