@@ -18,18 +18,19 @@ output = ''  # define an empty string
 for animal in animals_data:
     # append information to each string
     if 'name' in animal:
-        output += f"Name: {animal['name']}\n"
+        # append information to each string
+        output += '<li class="cards__item">'
+        output += f"Name: {animal['name']}<br/>\n"
         diet = animal.get('characteristics', {}).get('diet')
         if diet:
-            output += f"Diet: {animal['characteristics']['diet']}\n"
+            output += f"Diet: {animal['characteristics']['diet']}<br/>\n"
         locations = animal.get('locations', [])
         if locations:
-            output += f"First Location: {locations}\n"
+            output += f"First Location: {locations}<br/>\n"
         animal_type = animal.get('characteristics', {}).get('type')
         if animal_type:
-            output += f"Type: {animal_type}\n"
-        output += ('-*' * 25)
-        output += "\n"
+            output += f"Type: {animal_type}<br/>\n"
+        output += '</li>'
         print(output)
 
 x = animals_temp.replace("__REPLACE_ANIMALS_INFO__", output)
@@ -37,4 +38,3 @@ x = animals_temp.replace("__REPLACE_ANIMALS_INFO__", output)
 with open('animals.html', 'w') as dest:
     dest.write(x)
 
-print(x)
