@@ -5,19 +5,36 @@ def load_data(file_path):
   with open(file_path, "r") as handle:
     return json.load(handle)
 
+def load_html(file_name):
+  with open (file_name, 'r') as source:
+    html_data = source.read()
+    return html_data
 
 animals_data = load_data('animals_data.json')
+animals_temp = load_html('animals_template.html')
 
+
+output = ''  # define an empty string
 for animal in animals_data:
-  if 'name' in animal:
-    print(f"Name: {animal['name']}")
-    diet = animal.get('characteristics', {}).get('diet')
-    if diet:
-      print(f"Diet: {diet}")
-    locations = animal.get('locations', [])
-    if locations:
-      print(f"First Location: {locations[0]}")
-    animal_type = animal.get('characteristics', {}).get('type')
-    if animal_type:
-      print(f"Type: {animal_type}")
-    print('-*' * 25)
+    # append information to each string
+    if 'name' in animal:
+        output += f"Name: {animal['name']}\n"
+        diet = animal.get('characteristics', {}).get('diet')
+        if diet:
+            output += f"Diet: {animal['characteristics']['diet']}\n"
+        locations = animal.get('locations', [])
+        if locations:
+            output += f"First Location: {locations}\n"
+        animal_type = animal.get('characteristics', {}).get('type')
+        if animal_type:
+            output += f"Type: {animal_type}\n"
+        output += ('-*' * 25)
+        output += "\n"
+        print(output)
+
+x = animals_temp.replace("__REPLACE_ANIMALS_INFO__", output)
+
+with open('animals.html', 'w') as dest:
+    dest.write(x)
+
+print(x)
