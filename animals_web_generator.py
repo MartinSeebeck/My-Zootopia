@@ -20,21 +20,20 @@ for animal in animals_data:
     if 'name' in animal:
         # append information to each string
         output += '<li class="cards__item">'
-        output += f"Name: {animal['name']}<br/>\n"
+        output += f'<div class="card__title">{animal['name']}</div><p class="card__text">'
         diet = animal.get('characteristics', {}).get('diet')
         if diet:
-            output += f"Diet: {animal['characteristics']['diet']}<br/>\n"
+            output += f"<strong>Diet:</strong> {animal['characteristics']['diet']}<br/>\n"
         locations = animal.get('locations', [])
         if locations:
-            output += f"First Location: {locations}<br/>\n"
+            output += f"<strong>Location:</strong> {locations}<br/>\n"
         animal_type = animal.get('characteristics', {}).get('type')
         if animal_type:
-            output += f"Type: {animal_type}<br/>\n"
-        output += '</li>'
+            output += f"<strong>Type:</strong> {animal_type}<br/>\n"
+        output += '</p></li>'
         print(output)
 
 x = animals_temp.replace("__REPLACE_ANIMALS_INFO__", output)
 
 with open('animals.html', 'w') as dest:
     dest.write(x)
-
